@@ -1,0 +1,25 @@
+{
+  "name": "task",
+  "version": "1.0.0",
+  "description": "test task efigence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Magda Skowroń",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mskowron0819/Test-Task-Layout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mskowron0819/Test-Task-Layout/issues"
+  },
+  "homepage": "https://github.com/mskowron0819/Test-Task-Layout#readme"
+}
