@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700');
 
 $main-color: #13BDD2;
+$round: 4px;
 body{
   font-family: 'Roboto Condensed';
   font-weight: 300;
@@ -10,18 +11,29 @@ body{
 header{
   background-color: $main-color;
   height: 10vh;
-  div.nav{
+  @media (min-width: $screen-sm-min) {
+    height: 15vh;
+  }
+  .nav{
     line-height: 10vh;
     color: #FFF;
+    .menu-position{
+      display: flex;
+      height: 10vh;
+      @media (min-width: $screen-sm-min) {
+        display: none;
+      }
+    }
     #hamburger-menu {
-      position: relative;
       width: 6vh;
       height: 6vh;
-      top: 2vh;
-      transform: translateY(-50%);
+      align-self: center;
       transform: rotate(0deg);
       transition: .5s ease-in-out;
       z-index: 2;
+      @media (min-width: $screen-sm-min) {
+        display: none;
+      }
       span {
         display: block;
         position: absolute;
@@ -41,7 +53,28 @@ header{
         height: 10vh;
       }
     }
-    #mail{
+    #logo, #user{
+      @media (min-width: $screen-sm-min) {
+        display: flex;
+        height: 15vh;
+        padding: 0;
+      }
+    }
+    #logo img, #user img{
+      @media (min-width: $screen-sm-min) {
+        align-self: center;
+        height: auto;
+        width: 100%;
+      }
+    }
+    #user-name{
+      @media (min-width: $screen-sm-min) {
+        text-align: center;
+        height: 6.5vh;
+        padding: 0;
+      }
+    }
+    #mail, #settings{
       height: 10vh;
       display: flex;
       justify-content: flex-end;
@@ -49,11 +82,15 @@ header{
         align-self: center;
         height: 7vh;
       }
+      @media (min-width: $screen-sm-min) {
+        height: 6.5vh;
+        img{
+          height: 2vh;
+        }
+      }
     }
   }
 }
-
-
 
 #hamburger-menu span:nth-child(1) {
   top: 0;
@@ -89,27 +126,63 @@ header{
 
 .finance-info{
   height: 14vh;
+  display: flex;
+  div{
+    align-self: center;
+    font-size: 2rem;
+  }
+  + div{
+    display: flex;
+    height: 14vh;
+  }
 }
 
 .button-color{
   background-color: $main-color;
+  border-radius: $round;
+  align-self: center;
+  color: #fff;
+  padding: 1vh;
+  text-align: center;
+
 }
 #chart{
   height: 40vh;
   background-color: #fff;
+  border-radius: $round;
 }
-
-.product{
-  height: 10vh;
-  background-color: #FFF;
+#products {
   margin-top: 2vh;
-  display: flex;
-    @media (min-width: $screen-sm-min){
-    border-right: solid 2vh #e4e6e5;
-  }
-  img{
-    height: 6vh;
-    align-self: center;
+  font-size: 2rem;
+  .product {
+    height: 10vh;
+    background-color: #FFF;
+    margin: 3% 5% 0 5%;
+    display: flex;
+    width: 90%;
+    padding-right: 0;
+    border-radius: $round;
+    span {
+      align-self: center;
+    }
+    @media (min-width: $screen-sm-min) {
+      width: 48%;
+      margin: 2% 2% 0 0;
+      font-size: 1.6rem;
+    }
+    img {
+      height: 6vh;
+      align-self: center;
+      padding-right: 5vh;
+      @media (min-width: $screen-sm-min) {
+        height: 4vh;
+        padding-right: 1vh;
+      }
+      @media (min-width: $screen-md-min) {
+        height: 6vh;
+        padding-right: 2vh;
+      }
+    }
   }
 }
 #nav-bar{
@@ -133,6 +206,11 @@ header{
     margin: 9vh 3vh -3vh 3vh;
   }
 }
-.show{
-  display: block;
+.hide-xs{
+  display: none;
+}
+.show-sm {
+  @media (min-width: $screen-sm-min) {
+    display: block;
+  }
 }
