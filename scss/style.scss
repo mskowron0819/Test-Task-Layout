@@ -10,10 +10,10 @@ body{
 header{
   background-color: $main-color;
   height: 10vh;
-  nav{
+  div.nav{
     line-height: 10vh;
     color: #FFF;
-    #menu {
+    #hamburger-menu {
       position: relative;
       width: 6vh;
       height: 6vh;
@@ -21,6 +21,7 @@ header{
       transform: translateY(-50%);
       transform: rotate(0deg);
       transition: .5s ease-in-out;
+      z-index: 2;
       span {
         display: block;
         position: absolute;
@@ -54,33 +55,33 @@ header{
 
 
 
-#menu span:nth-child(1) {
+#hamburger-menu span:nth-child(1) {
   top: 0;
 }
 
-#menu span:nth-child(2),#menu span:nth-child(3) {
+#hamburger-menu span:nth-child(2),#hamburger-menu span:nth-child(3) {
   top: 2vh;
 }
 
-#menu span:nth-child(4) {
+#hamburger-menu span:nth-child(4) {
   top: 4vh;
 }
 
-#menu.open span:nth-child(1) {
+#hamburger-menu.open span:nth-child(1) {
   top: 2vh;
   width: 0;
   left: 50%;
 }
 
-#menu.open span:nth-child(2) {
+#hamburger-menu.open span:nth-child(2) {
   transform: rotate(45deg);
 }
 
-#menu.open span:nth-child(3) {
+#hamburger-menu.open span:nth-child(3) {
   transform: rotate(-45deg);
 }
 
-#menu.open span:nth-child(4) {
+#hamburger-menu.open span:nth-child(4) {
   top: 2vh;
   width: 0;
   left: 50%;
@@ -110,4 +111,28 @@ header{
     height: 6vh;
     align-self: center;
   }
+}
+#nav-bar{
+  display: none;
+  background-color: #333333;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  ul{
+    list-style-type: none;
+    li{
+      color: #FFF;
+      font-size: 5vh;
+    }
+  }
+  img{
+    height: 10vh;
+    margin: 9vh 3vh -3vh 3vh;
+  }
+}
+.show{
+  display: block;
 }
