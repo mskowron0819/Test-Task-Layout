@@ -1,2 +1,113 @@
 @import "bootstrap/bootstrap-sass-grid";
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700');
+
+$main-color: #13BDD2;
+body{
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  background-color: #e4e6e5;
+}
+header{
+  background-color: $main-color;
+  height: 10vh;
+  nav{
+    line-height: 10vh;
+    color: #FFF;
+    #menu {
+      position: relative;
+      width: 6vh;
+      height: 6vh;
+      top: 2vh;
+      transform: translateY(-50%);
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      span {
+        display: block;
+        position: absolute;
+        height: 1vh;
+        width: 100%;
+        background: #FFF;
+        border-radius: 9px;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+      }
+    }
+    #logo{
+      display: flex;
+      justify-content: center;
+      img{
+        height: 10vh;
+      }
+    }
+    #mail{
+      height: 10vh;
+      display: flex;
+      justify-content: flex-end;
+      img{
+        align-self: center;
+        height: 7vh;
+      }
+    }
+  }
+}
+
+
+
+#menu span:nth-child(1) {
+  top: 0;
+}
+
+#menu span:nth-child(2),#menu span:nth-child(3) {
+  top: 2vh;
+}
+
+#menu span:nth-child(4) {
+  top: 4vh;
+}
+
+#menu.open span:nth-child(1) {
+  top: 2vh;
+  width: 0;
+  left: 50%;
+}
+
+#menu.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+#menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+#menu.open span:nth-child(4) {
+  top: 2vh;
+  width: 0;
+  left: 50%;
+}
+
+.finance-info{
+  height: 14vh;
+}
+
+.button-color{
+  background-color: $main-color;
+}
+#chart{
+  height: 40vh;
+  background-color: #fff;
+}
+
+.product{
+  height: 10vh;
+  background-color: #FFF;
+  margin-top: 2vh;
+  display: flex;
+    @media (min-width: $screen-sm-min){
+    border-right: solid 2vh #e4e6e5;
+  }
+  img{
+    height: 6vh;
+    align-self: center;
+  }
+}
