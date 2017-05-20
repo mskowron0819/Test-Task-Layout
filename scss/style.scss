@@ -3,19 +3,25 @@
 
 $main-color: #13BDD2;
 $round: 4px;
+$nav-height: 17vh;
 body{
   font-family: 'Roboto Condensed';
   font-weight: 300;
   background-color: #e4e6e5;
 }
+a{
+  color: #FFF;
+}
 header{
   background-color: $main-color;
   height: 10vh;
+  [class*="col-"]{
+    padding: 0;
+  }
   @media (min-width: $screen-sm-min) {
-    height: 15vh;
+    height: $nav-height;
   }
   .nav{
-    line-height: 10vh;
     color: #FFF;
     .menu-position{
       display: flex;
@@ -56,8 +62,7 @@ header{
     #logo, #user{
       @media (min-width: $screen-sm-min) {
         display: flex;
-        height: 15vh;
-        padding: 0;
+        height: $nav-height;
       }
     }
     #logo img, #user img{
@@ -69,29 +74,103 @@ header{
     }
     #user-name{
       @media (min-width: $screen-sm-min) {
+        font-size: 2vw;
         text-align: center;
-        height: 6.5vh;
-        padding: 0;
+        height: 7.5vh;
+        margin-top: 2vh;
       }
     }
-    #mail, #settings{
+    #mail{
       height: 10vh;
       display: flex;
       justify-content: flex-end;
+      padding-right: 8px;
       img{
         align-self: center;
         height: 7vh;
       }
       @media (min-width: $screen-sm-min) {
-        height: 6.5vh;
+        height: 6vh;
+        justify-content: flex-end;
+        padding: 0;
+        margin-left: 15px;
         img{
-          height: 2vh;
+          height: 4vh;
+          align-self: center;
+        }
+      }
+    }
+    #settings{
+      @media (min-width: $screen-sm-min) {
+        height: 6vh;
+        justify-content: flex-end;
+        display: flex;
+        img{
+          height: 4vh;
+          align-self: center;
+          padding-right: 0;
         }
       }
     }
   }
+  #search img{
+    border-right: 2px solid #64D4E1;
+  }
+    #power, #search{
+      display: flex;
+      height: $nav-height;
+    img{
+      align-self: center;
+      height: 10vh;
+    }
+  }
 }
-
+#nav-bar{
+  display: none;
+  background-color: #333333;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  ul {
+    list-style-type: none;
+    @media (min-width: $screen-sm-min) {
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      height: 10vh;
+      margin: 9vh 3vh -6vh 5vh;
+      @media (min-width: $screen-sm-min) {
+        margin: 5vh auto 1vh auto;
+        display: block;
+        height: 6vh;
+      }
+    }
+    a:hover{
+      background-color: black;
+    }
+    li {
+      text-align: center;
+      font-size: 4vh;
+      padding-bottom: 2vh;
+      @media (min-width: $screen-sm-min) {
+        font-size: 1.7vh;
+        height: 5vh;
+        text-align: center;
+      }
+    }
+  }
+  @media (min-width: $screen-sm-min) {
+    background-color: transparent;
+    height: $nav-height;
+    display: block;
+    position: static;
+    width: 33.33333%;
+  }
+}
 #hamburger-menu span:nth-child(1) {
   top: 0;
 }
@@ -185,27 +264,7 @@ header{
     }
   }
 }
-#nav-bar{
-  display: none;
-  background-color: #333333;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  ul{
-    list-style-type: none;
-    li{
-      color: #FFF;
-      font-size: 5vh;
-    }
-  }
-  img{
-    height: 10vh;
-    margin: 9vh 3vh -3vh 3vh;
-  }
-}
+
 .hide-xs{
   display: none;
 }
