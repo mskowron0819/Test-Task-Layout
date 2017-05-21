@@ -18,21 +18,21 @@
                         <span></span>
                     </div>
                 </div>
-                <div class="col-xs-4 col-sm-1"  id="logo">
+                <div class="col-xs-4 col-sm-1 flex"  id="logo">
                     <img src="./img/logo.png" alt="logo efi3">
                 </div>
-                <div class="col-sm-1 hide-xs show-sm" id="user">
+                <div class="col-sm-1 hidden-xs show-sm flex" id="user">
                     <img src="./img/user.png" alt="user image">
                 </div>
                 <div class="col-sm-2">
-                        <div class="hide-xs show-sm col-sm-12" id="user-name">
+                        <div class="hide-xs show-sm" id="user-name">
                             Jan Kowalski
                         </div>
                     <div class="row">
-                        <div class="col-xs-4 col-sm-3" id="mail" >
+                        <div class="col-xs-4 col-sm-3 flex" id="mail" >
                             <img src="./img/mail.png" alt="mail icon">
                         </div>
-                        <div class="col-sm-3 hide-xs show-sm" id="settings" >
+                        <div class="col-sm-3 hidden-xs" id="settings" >
                             <img src="./img/settings.png" alt="settings icon">
                         </div>
                     </div>
@@ -57,30 +57,42 @@
                         </a>
                     </ul>
                 </nav>
-                <div class="col-md-offset-2 col-md-1" >
-                    <div class="row" id="search-logout">
-                        <div class="col-sm-6" id="search">
-                            <img src="./img/search.png" alt="search icon" >
-                        </div>
-                        <div class="col-sm-6" id="power">
-                        <img src="./img/power.png" alt="logout icon" >
-                    </div>
-                    </div>
+                <div class="col-sm-offset-2 col-sm-1 hidden-xs flex" id="search-panel" >
+                        <img id="search" class="center-align" src="./img/search.png" alt="search icon">
+                        <img id="power" class="center-align" src="./img/power.png" alt="logout icon">
                 </div>
             </div>
         </div>
 
     </header>
-    <section class="container">
+    <section class="container" id="finance">
+        <div class="row hidden-xs flex">
+            <div class="col-sm-5">
+                <h1>Finance life stream</h1>
+            </div>
+            <div class="col-sm-offset-4 col-sm-1 align-right center-align">
+                Add
+            </div>
+            <div class="col-sm-1 button-color" id="add-bank">
+                BANK
+            </div>
+            <div class="col-sm-1 button-color" id="add-payment">
+                PAYMENT
+            </div>
+        </div>
         <div class="row">
-            <div class="col-xs-8 finance-info">
-                <div class="hide"></div>
+            <div class="col-xs-8" id="finance-info">
+                <div class="hidden-xs">Balance</br>
+                    <strong>7 200,34</strong> PLN
+                </div>
                 <div>Available funds</br>
                     <strong>7 200,34</strong> PLN
                 </div>
-                <div class="hide"></div>
+                <div class="hidden-xs">Scheduled payments</br>
+                    <strong>2 200,34</strong> PLN
+                </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 hidden-sm hidden-lg hidden-md">
                <div class="button-color">ADD NEW EXPENSE</div>
             </div>
         </div>
@@ -124,18 +136,37 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6" id="history">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+
             </div>
 
         </div>

@@ -5,7 +5,7 @@ $main-color: #13BDD2;
 $round: 4px;
 $nav-height: 17vh;
 body{
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
   background-color: #e4e6e5;
 }
@@ -14,12 +14,12 @@ a{
 }
 header{
   background-color: $main-color;
-  height: 10vh;
+  min-height: 10vh;
   [class*="col-"]{
     padding: 0;
   }
   @media (min-width: $screen-sm-min) {
-    height: $nav-height;
+    max-height: $nav-height;
   }
   .nav{
     color: #FFF;
@@ -52,77 +52,74 @@ header{
         transition: .25s ease-in-out;
       }
     }
-    #logo{
-      display: flex;
-      justify-content: center;
-      img{
-        height: 10vh;
-      }
-    }
     #logo, #user{
+      justify-content: center;
       @media (min-width: $screen-sm-min) {
-        display: flex;
         height: $nav-height;
       }
     }
     #logo img, #user img{
+      height: 10vh;
       @media (min-width: $screen-sm-min) {
-        align-self: center;
         height: auto;
         width: 100%;
+        align-self: center;
       }
     }
     #user-name{
       @media (min-width: $screen-sm-min) {
         font-size: 2vw;
         text-align: center;
-        height: 7.5vh;
+        min-height: 7.5vh;
         margin-top: 2vh;
       }
     }
     #mail{
-      height: 10vh;
-      display: flex;
       justify-content: flex-end;
-      padding-right: 8px;
+      height: 10vh;
       img{
         align-self: center;
-        height: 7vh;
+        height: 8vh;
+        margin-right: 9px;
       }
       @media (min-width: $screen-sm-min) {
         height: 6vh;
-        justify-content: flex-end;
         padding: 0;
-        margin-left: 15px;
+        margin-left: 30px;
+        justify-content: flex-end;
         img{
           height: 4vh;
-          align-self: center;
         }
       }
     }
     #settings{
-      @media (min-width: $screen-sm-min) {
+      :hover{
+        animation:spin 4s linear infinite;
+      }
+      @keyframes spin {
+        100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+      }
         height: 6vh;
         justify-content: flex-end;
         display: flex;
         img{
           height: 4vh;
           align-self: center;
-          padding-right: 0;
-        }
+          //padding-right: 0;
       }
     }
   }
-  #search img{
-    border-right: 2px solid #64D4E1;
+  #search-panel{
+    height: $nav-height;
   }
-    #power, #search{
-      display: flex;
-      height: $nav-height;
-    img{
-      align-self: center;
-      height: 10vh;
-    }
+  #search{
+    border-right: 2px solid #64D4E1;
+    width: 53%;
+    align-self: center;
+  }
+  #power{
+    width: 43%;
+    align-self: center;
   }
 }
 #nav-bar{
@@ -151,6 +148,18 @@ header{
     }
     a:hover{
       background-color: black;
+      :before{
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background-color: #000;
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+      }
     }
     li {
       text-align: center;
@@ -165,7 +174,7 @@ header{
   }
   @media (min-width: $screen-sm-min) {
     background-color: transparent;
-    height: $nav-height;
+    max-height: $nav-height;
     display: block;
     position: static;
     width: 33.33333%;
@@ -202,8 +211,31 @@ header{
   width: 0;
   left: 50%;
 }
-
-.finance-info{
+#finance{
+  @media (min-width: $screen-sm-min) {
+    margin-top: 4.8vh;
+    [class*="col-"]{
+      padding: 0;
+    }
+  }
+  .align-right{
+      text-align: right;
+      text-align: right;
+      font-size: 1.8rem;
+    }
+  h1{
+    margin: 0;
+    font-size: 6rem;
+    font-weight: 300;
+  }
+  #add-bank, #add-payment {
+    width: 7.33333%;
+    padding: 1vh;
+    font-size: 1.8rem;
+    margin-left: 1%;
+  }
+}
+#finance-info{
   height: 14vh;
   display: flex;
   div{
@@ -214,8 +246,17 @@ header{
     display: flex;
     height: 14vh;
   }
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    margin-bottom: 3vh;
+    div{
+      margin-top: 1vh;
+      font-size: 3rem;
+    }
+  }
 }
-
 .button-color{
   background-color: $main-color;
   border-radius: $round;
@@ -226,7 +267,7 @@ header{
 
 }
 #chart{
-  height: 40vh;
+  min-height: 40vh;
   background-color: #fff;
   border-radius: $round;
 }
@@ -234,7 +275,7 @@ header{
   margin-top: 2vh;
   font-size: 2rem;
   .product {
-    height: 10vh;
+    min-height: 16vh;
     background-color: #FFF;
     margin: 3% 5% 0 5%;
     display: flex;
@@ -245,20 +286,21 @@ header{
       align-self: center;
     }
     @media (min-width: $screen-sm-min) {
+      min-height: 10vh;
       width: 48%;
       margin: 2% 2% 0 0;
       font-size: 1.6rem;
     }
     img {
-      height: 6vh;
+      max-height: 6vh;
       align-self: center;
       padding-right: 5vh;
       @media (min-width: $screen-sm-min) {
-        height: 4vh;
+        max-height: 4vh;
         padding-right: 1vh;
       }
       @media (min-width: $screen-md-min) {
-        height: 6vh;
+        max-height: 6vh;
         padding-right: 2vh;
       }
     }
@@ -272,4 +314,10 @@ header{
   @media (min-width: $screen-sm-min) {
     display: block;
   }
+}
+.flex{
+  display: flex;
+}
+.center-align{
+  align-self: center;
 }
