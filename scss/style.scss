@@ -296,6 +296,15 @@ header{
   height: 42vh;
   background-color: #fff;
   border-radius: $round;
+  @media (max-width: $screen-xs-min) {
+    width: 90%;
+  }
+  .amcharts-main-div{
+    margin: 0 -8%;
+    @media (min-width: $screen-sm-min) {
+      margin: 0 -2%;
+    }
+  }
 }
 #products {
   margin-top: 2vh;
@@ -356,8 +365,10 @@ header{
   font-size: 2rem;
   overflow: auto;
   height: 40vh;
+  padding: 0 5%;
   @media (min-width: $screen-sm-min) {
     padding-right: 0;
+    padding-left: 2vh;
   }
 
   .history-item{
