@@ -321,3 +321,47 @@ header{
 .center-align{
   align-self: center;
 }
+#history div{
+  //border: 1px solid black;
+  padding: 0;
+}
+#history{
+  margin-top: 2vh;
+  font-size: 2rem;
+  overflow: auto;
+  height: 40vh;
+  @media (min-width: $screen-sm-min) {
+    padding-right: 0;
+  }
+
+  .history-item{
+    text-align: center;
+    margin: 0 0 1% 0;
+    background-color: #fff;
+    border-radius: $round;
+    display: flex;
+    padding-right: 0;
+    .description{
+      text-align: left;
+    }
+    div{
+      align-self: center;
+    }
+    .description{
+      padding-top: 4%;
+    }
+    select{
+      background: url('../img/dropArrow.png') no-repeat center right;
+      background-size: 15% 40%;
+      border: none;
+      -webkit-appearance: none;
+      padding-left: 15px;
+      width: 100%;
+      outline: none;
+      margin-bottom: 6%;
+    }
+  }
+  :first-child{
+    margin-top: 2%;
+  }
+}
