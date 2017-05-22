@@ -3227,7 +3227,7 @@ AmCharts.themes.patterns = {
 
 	AmCoordinateChart: {
 		colors: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
-		patterns: [{ "url": "patterns/black/pattern1.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern2.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern3.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern4.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern5.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern6.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern7.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern8.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern9.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern10.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern11.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern12.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern13.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern14.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern15.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern16.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern17.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern18.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern19.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern20.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern21.png", "width": 4, "height": 4 }]
+		patterns: [{ "url": "../img/pattern1.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern2.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern3.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern4.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern5.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern6.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern7.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern8.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern9.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern10.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern11.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern12.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern13.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern14.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern15.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern16.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern17.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern18.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern19.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern20.png", "width": 4, "height": 4 }, { "url": "patterns/black/pattern21.png", "width": 4, "height": 4 }]
 	},
 
 	AmStockChart: {
@@ -4194,6 +4194,8 @@ __webpack_require__(1);
 __webpack_require__(2);
 
 $(document).ready(function () {
+    // nav-bar functionalities
+
     var menu = document.getElementById('hamburger-menu');
     var nav = document.getElementById('nav-bar');
 
@@ -4202,11 +4204,29 @@ $(document).ready(function () {
         nav.classList.toggle('show');
     });
 
+    //Search
+    $('#search').click(function (e) {
+        $('.search-input').toggle();
+    });
+    $('#search-panel').submit(function (e) {
+        e.preventDefault();
+    });
+    $('.search-input').click(function (e) {
+        $('.search-input').css('background-color', '#fff');
+        $('.search-input').css('width', '120%');
+    });
+
+    console.log($('.search-input'));
+
+    // history section filled width data from Api
+
     var historyData = 'https://efigence-camp.herokuapp.com/api/data/history';
 
     function insertContent(data) {
         for (var i = 0; i < data.length; i++) {
-            var item = '<div class="row history-item">' + '<div class="col-xs-2 date">' + data[i].date.slice(5, 10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">' + data[i].description + '<div class="row">' + '<div class="col-xs-4 category">' + '<select name="type">' + '<option value=${date[i].category}>' + data[i].category + '</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>' + '</div>' + '</div>' + ' </div>' + '<div class="col-xs-4 amount"><strong>' + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ") + '</strong> PLN</div>' + '</div>';
+            var isOutcome = void 0;
+            data[i].status === 'outcome' ? isOutcome = '-' : isOutcome = '';
+            var item = '<div class="row history-item">' + '<div class="col-xs-2 date">' + data[i].date.slice(5, 10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">' + data[i].description + '<div class="row">' + '<div class="col-xs-4 category">' + '<select name="type">' + '<option value=${date[i].category}>' + data[i].category + '</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>' + '</div>' + '</div>' + ' </div>' + '<div class="col-xs-4 amount"><strong>' + isOutcome + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ") + '</strong> PLN</div>' + '</div>';
             $('#history').append(item);
         }
     }
@@ -4220,6 +4240,9 @@ $(document).ready(function () {
         });
     }
     loadHistory();
+
+    // Chart section made with AmCharts library
+
     AmCharts.makeChart("chart", {
         "type": "serial",
         "categoryField": "category",

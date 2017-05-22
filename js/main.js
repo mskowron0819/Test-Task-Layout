@@ -3,6 +3,8 @@ require('./chart.js/patterns');
 require('./chart.js/serial');
 
 $(document).ready(function(){
+    // nav-bar functionalities
+
     const menu = document.getElementById('hamburger-menu');
     const nav = document.getElementById('nav-bar');
 
@@ -12,11 +14,30 @@ $(document).ready(function(){
 
     });
 
+    //Search
+    $('#search').click((e) => {
+        $('.search-input').toggle();
+    });
+    $('#search-panel').submit((e) => {
+            e.preventDefault();
+    });
+    $('.search-input').click((e)=> {
+        $('.search-input').css('background-color', '#fff');
+        $('.search-input').css('width', '120%');
+    });
+
+
+    console.log($('.search-input'));
+
+    // history section filled width data from Api
+
     var historyData = 'https://efigence-camp.herokuapp.com/api/data/history';
 
     function insertContent(data) {
         for (let i = 0; i < data.length; i++) {
-            const item = '<div class="row history-item">' + '<div class="col-xs-2 date">'+ data[i].date.slice(5,10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">'+  data[i].description + '<div class="row">' + '<div class="col-xs-4 category">'+ '<select name="type">' + '<option value=${date[i].category}>'+data[i].category+'</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>'+ '</div>'+ '</div>'+ ' </div>' + '<div class="col-xs-4 amount"><strong>' + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ")  + '</strong> PLN</div>' + '</div>';
+            let isOutcome;
+            data[i].status ==='outcome' ? isOutcome = '-' : isOutcome = '';
+            const item = '<div class="row history-item">' + '<div class="col-xs-2 date">'+ data[i].date.slice(5,10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">'+  data[i].description + '<div class="row">' + '<div class="col-xs-4 category">'+ '<select name="type">' + '<option value=${date[i].category}>'+data[i].category+'</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>'+ '</div>'+ '</div>'+ ' </div>' + '<div class="col-xs-4 amount"><strong>' + isOutcome + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ")  + '</strong> PLN</div>' + '</div>';
                     $('#history').append(item);
         }
     }
@@ -30,6 +51,9 @@ $(document).ready(function(){
         })
     }
     loadHistory();
+
+    // Chart section made with AmCharts library
+
     AmCharts.makeChart("chart",
         {
             "type": "serial",

@@ -109,17 +109,41 @@ header{
       }
     }
   }
-  #search-panel{
+  //form{
+  //  position: absolute;
+  //  top: 50%;
+  //  right: 115%;
+  //  transform: translateY(-50%);
+  //  color: black;
+  //}
+  #search-panel {
     height: $nav-height;
-  }
-  #search{
-    border-right: 2px solid #64D4E1;
-    width: 53%;
-    align-self: center;
-  }
-  #power{
-    width: 43%;
-    align-self: center;
+    .search-input {
+      width: 10vh;
+      height: 3vh;
+      position: absolute;
+      display: none;
+      top: 50%;
+      right: 115%;
+      transform: translateY(-50%);
+      color: black;
+      outline: none;
+      border-radius: $round;
+      padding: 1vh;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.61);
+    }
+    #search {
+      border-right: 2px solid #64D4E1;
+      width: 53%;
+      align-self: center;
+      outline: none;
+    }
+    #power {
+      width: 43%;
+      outline: none;
+      align-self: center;
+    }
   }
 }
 #nav-bar{
@@ -146,19 +170,21 @@ header{
         height: 6vh;
       }
     }
-    a:hover{
-      background-color: black;
-      :before{
-        content: '';
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        background-color: #000;
-        position: absolute;
-        bottom: -1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50%;
+    @media (min-width: $screen-md-min) {
+      a:hover {
+        background-color: black;
+        :before {
+          content: '';
+          display: block;
+          width: 2rem;
+          height: 2rem;
+          background-color: #000;
+          position: absolute;
+          bottom: -1rem;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 50%;
+        }
       }
     }
     li {
@@ -267,7 +293,7 @@ header{
 
 }
 #chart{
-  min-height: 40vh;
+  height: 42vh;
   background-color: #fff;
   border-radius: $round;
 }
@@ -364,4 +390,8 @@ header{
   :first-child{
     margin-top: 2%;
   }
+}
+::-webkit-input-placeholder {
+  color: $main-color;
+  font-size: 1.7rem;
 }

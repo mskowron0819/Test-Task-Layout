@@ -9,7 +9,7 @@ AmCharts.themes.patterns = {
 	AmCoordinateChart: {
 		colors:["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],
 		patterns:[
-		{"url":"patterns/black/pattern1.png", "width":4, "height":4},
+		{"url":"../img/pattern1.png", "width":4, "height":4},
 		{"url":"patterns/black/pattern2.png", "width":4, "height":4},
 		{"url":"patterns/black/pattern3.png", "width":4, "height":4},
 		{"url":"patterns/black/pattern4.png", "width":4, "height":4},
