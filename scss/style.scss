@@ -275,10 +275,12 @@ header{
   div{
     align-self: center;
     font-size: 2rem;
+    padding-left: 5%;
   }
   + div{
     display: flex;
     height: 14vh;
+    padding-right: 5%;
   }
   @media (min-width: $screen-sm-min) {
     display: flex;
@@ -288,6 +290,7 @@ header{
     div{
       margin-top: 1vh;
       font-size: 3rem;
+      padding-left: 0;
     }
   }
 }
@@ -374,6 +377,10 @@ header{
   div:nth-child(2){
     padding-left: 45px;
   }
+}
+.bank-info.visible-xs div{
+  padding-left: 5%;
+  margin: 3vh 0 1vh 0;
 }
 #history{
   overflow: auto;
