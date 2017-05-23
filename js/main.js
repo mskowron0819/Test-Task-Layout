@@ -13,6 +13,11 @@ $(document).ready(function(){
         nav.classList.toggle('show');
 
     });
+    $( "#nav-bar ul a" ).click(function() {
+        $("#nav-bar ul a").removeClass('menu-hover');
+        $(this).addClass('menu-hover');
+
+    });
 
     //Search
     $('#search').click((e) => {
@@ -21,14 +26,17 @@ $(document).ready(function(){
     $('#search-panel').submit((e) => {
             e.preventDefault();
     });
-    $('.search-input').click((e)=> {
-        $('.search-input').css('background-color', '#fff');
-        $('.search-input').css('width', '120%');
+    $('.search-input').click(function() {
+        $(this).css('background-color', '#fff').animate({width: '150%'});
     });
 
+    //Products section
 
-    console.log($('.search-input'));
+    $( ".product" ).click(function() {
+        $('.product').removeClass('style');
+        $(this).addClass('style');
 
+    });
     // history section filled width data from Api
 
     var historyData = 'https://efigence-camp.herokuapp.com/api/data/history';
@@ -37,7 +45,7 @@ $(document).ready(function(){
         for (let i = 0; i < data.length; i++) {
             let isOutcome;
             data[i].status ==='outcome' ? isOutcome = '-' : isOutcome = '';
-            const item = '<div class="row history-item">' + '<div class="col-xs-2 date">'+ data[i].date.slice(5,10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">'+  data[i].description + '<div class="row">' + '<div class="col-xs-4 category">'+ '<select name="type">' + '<option value=${date[i].category}>'+data[i].category+'</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>'+ '</div>'+ '</div>'+ ' </div>' + '<div class="col-xs-4 amount"><strong>' + isOutcome + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ")  + '</strong> PLN</div>' + '</div>';
+            const item = '<div class="row history-item flex">' + '<div class="col-xs-2 date">'+ data[i].date.slice(5,10).split('-').reverse().join('.') + '</div>' + '<div class="col-xs-6 description">'+  data[i].description + '<div class="row">' + '<div class="col-xs-4 category">'+ '<select name="type">' + '<option value=${date[i].category}>'+data[i].category+'</option>' + '<option value="Food">Food</option>' + '<option value="Salary">Salary</option>' + '<option value="Fun">Fun</option>' + '</select>'+ '</div>'+ '</div>'+ ' </div>' + '<div class="col-xs-4 amount"><strong>' + isOutcome + data[i].amount.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ")  + '</strong> PLN</div>' + '</div>';
                     $('#history').append(item);
         }
     }

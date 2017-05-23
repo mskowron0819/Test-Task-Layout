@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="container-fluid">
-        <div class="container nav">
+        <div class="container nav" role="navigation">
             <div class="row">
                 <div class="col-xs-4 menu-position">
                     <div id="hamburger-menu">
@@ -20,11 +20,11 @@
                         <span></span>
                     </div>
                 </div>
-                <div class="col-xs-4 col-sm-1 flex"  id="logo">
-                    <img src="./img/logo.png" alt="logo efi3">
+                <div class="col-xs-4 col-sm-1">
+                    <a href="#" class="flex"  id="logo"><img src="./img/logo.png" alt="logo efi3"></a>
                 </div>
-                <div class="col-sm-1 hidden-xs show-sm flex" id="user">
-                    <img src="./img/user.png" alt="user image">
+                <div class="col-sm-1 hidden-xs show-sm" >
+                    <a href="#" class="flex" id="user"><img src="./img/user.png" alt="user image"></a>
                 </div>
                 <div class="col-sm-2">
                         <div class="hide-xs show-sm" id="user-name">
@@ -105,8 +105,16 @@
     <section class="container" id="chart">
     </section>
     <section class="container">
+        <div class="row bank-info">
+            <div class="col-xs-12 col-sm-6">
+                Products
+            </div>
+            <div class="col-xs-12 col-sm-6 hidden-xs">
+                History
+            </div>
+        </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6" id="products">Products
+            <div class="col-xs-12 col-sm-6" id="products">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 product">
                         <img src="./img/wallets.png" alt="">
@@ -139,8 +147,12 @@
                     </div>
                 </div>
             </div>
+            <div class="row bank-info visible-xs">
+                <div class="col-xs-12">
+                    History
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-6" id="history">
-                History
             </div>
 
         </div>

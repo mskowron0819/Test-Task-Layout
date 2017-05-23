@@ -66,6 +66,12 @@ header{
         align-self: center;
       }
     }
+    #logo img:hover{
+      filter: contrast(250%);
+    }
+    #user img:hover{
+      filter: hue-rotate(515deg);
+    }
     #user-name{
       @media (min-width: $screen-sm-min) {
         font-size: 2vw;
@@ -105,17 +111,9 @@ header{
         img{
           height: 4vh;
           align-self: center;
-          //padding-right: 0;
       }
     }
   }
-  //form{
-  //  position: absolute;
-  //  top: 50%;
-  //  right: 115%;
-  //  transform: translateY(-50%);
-  //  color: black;
-  //}
   #search-panel {
     height: $nav-height;
     .search-input {
@@ -134,15 +132,21 @@ header{
       background-color: rgba(255, 255, 255, 0.61);
     }
     #search {
-      border-right: 2px solid #64D4E1;
       width: 53%;
       align-self: center;
       outline: none;
     }
+    #search:hover{
+      transform: scale(1.3);
+    }
     #power {
+      border-left: 2px solid #64D4E1;
       width: 43%;
       outline: none;
       align-self: center;
+    }
+    #power:hover{
+      filter: contrast(250%);
     }
   }
 }
@@ -259,6 +263,10 @@ header{
     padding: 1vh;
     font-size: 1.8rem;
     margin-left: 1%;
+    cursor: pointer;
+  }
+  #add-payment:hover, #add-bank:hover{
+      background-color: #17E6FF;
   }
 }
 #finance-info{
@@ -296,7 +304,7 @@ header{
   height: 42vh;
   background-color: #fff;
   border-radius: $round;
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     width: 90%;
   }
   .amcharts-main-div{
@@ -307,7 +315,6 @@ header{
   }
 }
 #products {
-  margin-top: 2vh;
   font-size: 2rem;
   .product {
     min-height: 16vh;
@@ -317,14 +324,16 @@ header{
     width: 90%;
     padding-right: 0;
     border-radius: $round;
+    cursor: pointer;
     span {
       align-self: center;
     }
     @media (min-width: $screen-sm-min) {
       min-height: 10vh;
       width: 48%;
-      margin: 2% 2% 0 0;
-      font-size: 1.6rem;
+      padding: 4vh 0 4vh 15px;
+      margin: 0 2% 2% 0;
+      font-size: 1.7rem;
     }
     img {
       max-height: 6vh;
@@ -335,7 +344,7 @@ header{
         padding-right: 1vh;
       }
       @media (min-width: $screen-md-min) {
-        max-height: 6vh;
+        max-height: 7vh;
         padding-right: 2vh;
       }
     }
@@ -356,53 +365,73 @@ header{
 .center-align{
   align-self: center;
 }
-#history div{
-  //border: 1px solid black;
-  padding: 0;
+.bank-info{
+  margin: 3vh 0 1vh 0;
+  font-size: 1.9rem;
+  div:first-child{
+    padding: 0;
+  }
+  div:nth-child(2){
+    padding-left: 45px;
+  }
 }
 #history{
-  margin-top: 2vh;
-  font-size: 2rem;
   overflow: auto;
-  height: 40vh;
+  height: 50vh;
   padding: 0 5%;
+  margin-bottom: 10vh;
   @media (min-width: $screen-sm-min) {
     padding-right: 0;
-    padding-left: 2vh;
+    padding-left: 30px;
+    font-size: 1.7rem;
   }
-
   .history-item{
     text-align: center;
     margin: 0 0 1% 0;
     background-color: #fff;
     border-radius: $round;
-    display: flex;
     padding-right: 0;
     .description{
       text-align: left;
+      padding: 2% 0 2% 3%;
     }
     div{
       align-self: center;
-    }
-    .description{
-      padding-top: 4%;
+      padding: 0;
     }
     select{
-      background: url('../img/dropArrow.png') no-repeat center right;
-      background-size: 15% 40%;
+      background: url('../img/dropArrow.png') no-repeat bottom right;
+      background-size: 20% 45%;
       border: none;
       -webkit-appearance: none;
-      padding-left: 15px;
+      padding: 10px 0 0 15px;
       width: 100%;
       outline: none;
-      margin-bottom: 6%;
     }
-  }
-  :first-child{
-    margin-top: 2%;
   }
 }
 ::-webkit-input-placeholder {
   color: $main-color;
   font-size: 1.7rem;
+}
+#products .product.style{
+  background-color: $main-color;
+  img{
+    filter: brightness(0.25); filter: brightness(100);
+  }
+}
+.menu-hover {
+  background-color: black;
+  :before{
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #000;
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
 }
