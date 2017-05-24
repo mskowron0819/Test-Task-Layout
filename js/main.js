@@ -30,6 +30,21 @@ $(document).ready(function(){
         $(this).css('background-color', '#fff').animate({width: '150%'});
     });
 
+    // Chart Tooltip
+
+    const tooltip = $('#tooltip');
+        tooltip.mouseover(function () {
+            const tooltipInner = '<div class="tooltipText">' + '<div class="flex"><img src="./img/alert.png"/>' + '<span>LIQUIDITY ALERT</span></div>' + '<div class="button-color">USE FACTORING</div>' + '<div class="button-color"><strong>TAKE A LOAN</strong></div>' + '<div' +
+                ' class="button-color">IMPORT HISTORY</div>'
+                '</div>';
+            $(this).append(tooltipInner);
+        });
+    const tooltipRm = $('span.tooltipText');
+    console.log(tooltipRm);
+    tooltipRm.mouseleave(function () {
+        tooltipRm.remove();
+        console.log('hello');
+    });
     //Products section
 
     $( ".product" ).click(function() {
@@ -79,20 +94,12 @@ $(document).ready(function(){
             "trendLines": [],
             "graphs": [
                 {
-                    "balloonText": "[[title]] of [[category]]:[[value]]",
+                    "balloonText": "",
                     "bullet": "round",
                     "id": "AmGraph-1",
                     "title": "graph 1",
                     "type": "smoothedLine",
                     "valueField": "column-1"
-                },
-                {
-                    "balloonText": "[[title]] of [[category]]:[[value]]",
-                    "bullet": "square",
-                    "id": "AmGraph-2",
-                    "title": "graph 2",
-                    "type": "smoothedLine",
-                    "valueField": "column-2"
                 }
             ],
             "guides": [],
@@ -104,7 +111,7 @@ $(document).ready(function(){
             ],
             "allLabels": [],
             "balloon": {
-                "borderThickness": 15
+                "borderThickness": 0
             },
             "titles": [
                 {

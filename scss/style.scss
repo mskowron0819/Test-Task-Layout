@@ -289,7 +289,59 @@ header{
   .amcharts-main-div{
     margin: 0 -8%;
     @media (min-width: $screen-sm-min) {
-      margin: 0 -2%;
+      margin: 0 -1%;
+    }
+  }
+}
+#tooltip {
+  position: absolute;
+  top: 69%;
+  right: 7%;
+  width: 16%;
+  height: 9%;
+  display: block;
+  z-index: 1;
+  cursor: pointer;
+  #chart-position {
+    position: relative;
+    padding: 0;
+  }
+  .tooltipText {
+    position: absolute;
+    top: -32vh;
+    right: 26%;
+    width: 18rem;
+    height: 21rem;
+    background-color: #E71B7B;
+    color: #FFF;
+    border-radius: $round;
+    z-index: 1;
+    padding: 2vh;
+    span:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 3rem solid #E71B7B;
+      border-right: 3rem solid transparent;
+      position: absolute;
+      bottom: -3vh;
+    }
+    img {
+      height: 5vh;
+      margin-top: -3vh;
+    }
+    span {
+      font-size: 1.8rem;
+      padding-left: 1.5vh;
+      margin-bottom: 3vh;
+    }
+    .button-color {
+      margin-bottom: 1vh;
+      padding: 1.3vh;
+      cursor: pointer;
+      :hover {
+        background-color: #17E6FF;
+      }
     }
   }
 }
@@ -372,7 +424,7 @@ header{
       background: url('../img/dropArrow.png') no-repeat bottom right;
       background-size: 20% 45%;
       border: none;
-      -webkit-appearance: none;
+      appearance: none;
       padding: 10px 0 0 15px;
       width: 100%;
       outline: none;
