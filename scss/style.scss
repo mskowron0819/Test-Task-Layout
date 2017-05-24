@@ -244,7 +244,6 @@ header{
     padding: 1vh;
     font-size: 1.8rem;
     margin-left: 1%;
-    cursor: pointer;
   }
   #add-payment:hover, #add-bank:hover{
       background-color: #17E6FF;
@@ -278,19 +277,27 @@ header{
   color: #fff;
   padding: 1vh;
   text-align: center;
+  cursor: pointer;
+  :hover{
+    background-color: #17e6ff;
+  }
 }
 #chart{
   height: 42vh;
   background-color: #fff;
   border-radius: $round;
-  @media (max-width: $screen-xs-max) {
-    width: 90%;
-  }
   .amcharts-main-div{
-    margin: 0 -8%;
+    margin: 0 -4%;
     @media (min-width: $screen-sm-min) {
       margin: 0 -1%;
     }
+  }
+}
+#chart-position {
+  position: relative;
+  padding: 0 5%;
+  @media (min-width: $screen-sm-min) {
+    padding: 0;
   }
 }
 #tooltip {
@@ -302,16 +309,12 @@ header{
   display: block;
   z-index: 1;
   cursor: pointer;
-  #chart-position {
-    position: relative;
-    padding: 0;
-  }
   .tooltipText {
     position: absolute;
     top: -32vh;
     right: 26%;
     width: 18rem;
-    height: 21rem;
+    height: 24rem;
     background-color: #E71B7B;
     color: #FFF;
     border-radius: $round;
@@ -335,13 +338,9 @@ header{
       padding-left: 1.5vh;
       margin-bottom: 3vh;
     }
-    .button-color {
+    div.button-color{
       margin-bottom: 1vh;
       padding: 1.3vh;
-      cursor: pointer;
-      :hover {
-        background-color: #17E6FF;
-      }
     }
   }
 }

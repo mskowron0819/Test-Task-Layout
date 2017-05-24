@@ -4195,20 +4195,18 @@ __webpack_require__(2);
 
 $(document).ready(function () {
     // nav-bar functionalities
-
-    var menu = document.getElementById('hamburger-menu');
-    var nav = document.getElementById('nav-bar');
-
-    menu.addEventListener('click', function (e) {
-        menu.classList.toggle('open');
-        nav.classList.toggle('show');
+    $('#hamburger-menu').click(function (e) {
+        $(this).toggleClass('open');
+        $('#nav-bar').toggleClass('show');
     });
+
     $("#nav-bar ul a").click(function () {
         $("#nav-bar ul a").removeClass('menu-hover');
         $(this).addClass('menu-hover');
     });
 
     //Search
+
     $('#search').click(function (e) {
         $('.search-input').toggle();
     });
@@ -4222,19 +4220,15 @@ $(document).ready(function () {
     // Chart Tooltip
 
     var tooltip = $('#tooltip');
-    tooltip.mouseover(function () {
-        var tooltipInner = '<div class="tooltipText">' + '<div class="flex"><img src="./img/alert.png"/>' + '<span>LIQUIDITY ALERT</span></div>' + '<div class="button-color">USE FACTORING</div>' + '<div class="button-color"><strong>TAKE A LOAN</strong></div>' + '<div' + ' class="button-color">IMPORT HISTORY</div>';
-        '</div>';
+    tooltip.mouseenter(function () {
+        var tooltipInner = '<div class="tooltipText">' + '<div class="flex"><img src="./img/alert.png"/>' + '<span>LIQUIDITY ALERT</span></div>' + '<div class="button-color">USE FACTORING</div>' + '<div class="button-color"><strong>TAKE A LOAN</strong></div>' + '<div class="button-color">IMPORT HISTORY</div>' + '</div>';
         $(this).append(tooltipInner);
     });
     var tooltipRm = $('span.tooltipText');
-    console.log(tooltipRm);
     tooltipRm.mouseleave(function () {
         tooltipRm.remove();
-        console.log('hello');
     });
     //Products section
-
     $(".product").click(function () {
         $('.product').removeClass('style');
         $(this).addClass('style');

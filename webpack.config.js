@@ -1,3 +1,4 @@
+process.traceDeprecation = true;
 module.exports = {
     entry: "./js/main.js",
     output: { filename: "./js/out.js" },
@@ -5,10 +6,10 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/, exclude: /node_modules/,
+                test: /\.js$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: { presets: ['es2015']
-                }
+                query: {presets: ['es2015']}
             }
         ]
     }
