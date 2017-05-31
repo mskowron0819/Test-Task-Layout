@@ -4194,6 +4194,8 @@ __webpack_require__(1);
 __webpack_require__(2);
 
 $(document).ready(function () {
+    var _this = this;
+
     // nav-bar functionalities
     $('#hamburger-menu').click(function (e) {
         $(this).toggleClass('open');
@@ -4217,6 +4219,20 @@ $(document).ready(function () {
         $(this).css('background-color', '#fff').animate({ width: '150%' });
     });
 
+    // chart switch
+
+    $('#myonoffswitch').click(function (e) {
+        console.log('works');
+        var el = $("#chart");
+        if (_this.checked) {
+            el.show(2000);
+            _this.checked = false;
+        } else {
+            el.hide(2000);
+            _this.checked = true;
+        }
+    });
+
     // Chart Tooltip
 
     var tooltip = $('#tooltip');
@@ -4226,7 +4242,7 @@ $(document).ready(function () {
     });
     var tooltipRm = $('span.tooltipText');
     tooltipRm.mouseleave(function () {
-        tooltipRm.remove();
+        $(this).remove();
     });
     //Products section
     $(".product").click(function () {

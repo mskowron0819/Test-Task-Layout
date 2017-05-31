@@ -26,6 +26,20 @@ $(document).ready(function(){
         $(this).css('background-color', '#fff').animate({width: '150%'});
     });
 
+    // chart switch
+
+    $('#myonoffswitch').click((e) => {
+        console.log('works');
+            const el = $("#chart");
+            if(this.checked){
+                el.show(2000);
+                this.checked = false;
+            }else{
+                el.hide(2000);
+                this.checked = true;
+            }
+    });
+
     // Chart Tooltip
 
     const tooltip = $('#tooltip');
@@ -35,7 +49,7 @@ $(document).ready(function(){
     });
     const tooltipRm = $('span.tooltipText');
     tooltipRm.mouseleave(function () {
-        tooltipRm.remove();
+        $(this).remove();
     });
     //Products section
     $( ".product" ).click(function() {
